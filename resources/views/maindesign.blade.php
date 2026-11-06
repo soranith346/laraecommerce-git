@@ -49,9 +49,6 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item active"><a class="nav-link" href="{{ route('index') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('allProduct') }}">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Why Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Testimonial</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                     </ul>
 
                     <div class="user_option">

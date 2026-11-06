@@ -12,7 +12,6 @@
                 <h3 class="text-uppercase font-weight-bold category-title m-0" style="color: #2c3e50;">
                     {{ $categoryName ?: 'Other Products' }}
                 </h3>
-                <span class="badge badge-pill badge-light border px-3 py-2">{{ $products->count() }} Items</span>
             </div>
 
             <div class="row">

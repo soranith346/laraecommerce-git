@@ -29,9 +29,22 @@
         </div>
 
         <!-- Image Upload -->
+        <!-- Current Image -->
         <div class="mb-3">
-            <label class="form-label">រូបភាពប្រភេទ</label>
-            <input type="file" name="image" class="form-control" value="">
+            <label class="form-label">រូបភាពបច្ចុប្បន្ន</label>
+
+            @if($category->image)
+                <div class="mb-2">
+                    <img src="{{ asset('uploads/' . $category->image) }}"
+                        width="120"
+                        height="120"
+                        style="object-fit: cover;"
+                        class="rounded border">
+                </div>
+            @endif
+
+            <label class="form-label">ជ្រើសរើសរូបភាពថ្មី</label>
+            <input type="file" name="image" class="form-control">
         </div>
 
         <!-- Status -->

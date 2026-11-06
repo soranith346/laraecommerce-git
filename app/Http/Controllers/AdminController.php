@@ -74,14 +74,32 @@ class AdminController extends Controller
         return view('admin.editcategory' , compact('category'));
     }
     // Update Category
-    public function updateCategory(Request $request , $id){
-        $category = Category::find($id);
+    public function updateCategory(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+
         $category->category = $request->category_name;
         $category->status = $request->status;
         $category->description = $request->description;
-        $category->image = $request->image;
+
+        // Check if user uploads a new image
+        if ($request->hasFile('image')) {
+
+            $image = $request->file('image');
+
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+            // Move image to public folder
+            $image->move(public_path('uploads/'), $imageName);
+
+            // Save image name in database
+            $category->image = $imageName;
+        }
+
         $category->save();
-        return redirect()->route('admin.viewcategory')->with('update_success' , 'Update Successfully');
+
+        return redirect()->route('admin.viewcategory')
+            ->with('update_success', 'Update Successfully');
     }
     // Add Product
     public function addProduct(){
